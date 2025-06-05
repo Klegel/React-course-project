@@ -1,0 +1,115 @@
+/* src/components/Header/Header.css */
+
+/* Header Styling */
+.main-header {
+  background-color: var(--bg-header) !important; /* Фон заголовка */
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 1030; /* Щоб хедер був поверх іншого вмісту (стандартний для Bootstrap fixed-top) */
+  width: 100%; /* Забезпечуємо повну ширину */
+}
+
+/* Light theme specific header background (if needed to override var) */
+body:not(.dark-theme) .main-header {
+  background-color: #ffffff !important;
+}
+
+/* Dark theme specific header background */
+body.dark-theme .main-header {
+  background-color: #343a40 !important; /* Темний фон заголовка */
+}
+
+.app-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+.main-header .btn {
+  font-weight: 500;
+}
+
+/* Header buttons - Outline styles */
+.btn-primary-outline {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+}
+.btn-primary-outline:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-secondary-outline {
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  background-color: transparent;
+}
+.btn-secondary-outline:hover {
+  color: #fff;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Cart icon specific styles */
+.cart-icon-container .badge {
+  background-color: var(--danger-color) !important;
+  font-size: 0.75em;
+  padding: .35em .6em;
+  top: -5px;
+  right: -5px;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+  transition: color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--primary-color);
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem !important;
+  }
+  .main-header nav {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  .main-header .btn {
+    flex-grow: 1;
+    margin-right: 0.5rem !important;
+  }
+  .main-header .btn:last-child {
+    margin-right: 0 !important;
+  }
+  .app-title {
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .app-title {
+    font-size: 1.5rem;
+  }
+  nav .btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .badge {
+    font-size: 0.65em;
+    padding: .2em .4em;
+  }
+}

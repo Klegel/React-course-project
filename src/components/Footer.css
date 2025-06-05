@@ -1,0 +1,73 @@
+/* src/components/Footer/Footer.css */
+
+/* Стилі для футера */
+.footer {
+  background-color: #343a40; /* Темний фон для футера */
+  color: #f8f9fa; /* Світлий текст */
+  position: relative;
+  padding-top: 10px; /* Відступ для лінії зверху */
+}
+
+/* Dark theme specific footer background */
+body.dark-theme .footer {
+  background-color: #212529; /* Трохи темніший фон для футера в темній темі */
+}
+
+.footer h5 {
+  color: #ffffff; /* Заголовки білим */
+}
+
+.footer .list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+.footer .text-white {
+  color: #f8f9fa !important; /* Щоб посилання залишалися білими */
+}
+
+.footer .text-white:hover {
+  color: #adb5bd !important; /* Сірий при наведенні */
+}
+
+/* Стилі для іконок соцмереж */
+.footer .svg-inline--fa {
+  color: #f8f9fa;
+  transition: color 0.3s ease;
+}
+
+.footer .svg-inline--fa:hover {
+  color: #007bff; /* Зміна кольору при наведенні на синій */
+}
+
+/* Стилі для внутрішньої полоски */
+.footer-line {
+  border: 0;
+  height: 1px; /* Висота лінії */
+  background-color: rgba(255, 255, 255, 0.2); /* Світло-сірий, напівпрозорий колір */
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+body.dark-theme .footer-line {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Стилі для полоски, що відділяє футер від основного вмісту */
+.footer-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px; /* Товщина полоски */
+  background: linear-gradient(to right, #007bff, #28a745, #dc3545); /* Градієнтний колір */
+}
+
+/* Адаптивні стилі для футера */
+@media (max-width: 768px) {
+  .footer .row > div {
+    margin-bottom: 2rem;
+  }
+  .footer .row > div:last-child {
+    margin-bottom: 0;
+  }
+}

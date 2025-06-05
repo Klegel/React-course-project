@@ -1,0 +1,40 @@
+/* src/components/ProductForm/ProductForm.css */
+
+/* Product Form specific styles */
+/* Якщо у вас є окрема картка для форми, стилі можуть бути тут */
+.product-form-card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background-color: var(--bg-card);
+}
+
+.product-form-card h4 {
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Dark theme specific for product form */
+body.dark-theme .product-form-card {
+  background-color: #3a3a3a;
+  color: var(--text-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+body.dark-theme .product-form-card h4 {
+  color: var(--link-color);
+  border-bottom-color: var(--border-color);
+}
+
+/* General form input styling if not covered by App.css */
+/* .form-label {
+  font-weight: 500;
+  color: var(--text-color);
+} */
+
+/* .form-control, .form-select {
+  border-radius: 0.5rem;
+} */

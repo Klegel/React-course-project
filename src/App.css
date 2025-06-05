@@ -1,0 +1,374 @@
+/* src/App.css */
+
+/* Імпорт Google Fonts (якщо використовуєте) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+/* CSS Змінні для тем */
+:root {
+  /* Основні кольори */
+  --primary-color: #007bff; /* Синій */
+  --secondary-color: #6c757d; /* Сірий */
+  --success-color: #28a745; /* Зелений */
+  --danger-color: #dc3545; /* Червоний */
+  --warning-color: #ffc107; /* Жовтий */
+
+  /* Кольори тексту */
+  --text-color: #343a40; /* Темний текст */
+  --text-muted: #6c757d; /* Приглушений текст */
+  --link-color: var(--primary-color);
+  --link-hover-color: #0056b3;
+
+  /* Кольори фону та елементів */
+  --bg-body: #f8f9fa; /* Фон сторінки */
+  --bg-card: #ffffff; /* Фон карток/контейнерів */
+  --bg-header: #ffffff; /* Фон заголовка */
+  --bg-input: #ffffff; /* Фон полів вводу */
+
+  /* Кольори межі */
+  --border-color: #dee2e6;
+  --border-focus-color: rgba(0, 123, 255, 0.25); /* Для фокусу інпутів */
+
+  /* Тіні */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+  /* Закруглення кутів */
+  --border-radius: 0.5rem;
+
+  /* Переходи для плавних змін теми */
+  --transition-speed: 0.3s ease-in-out;
+}
+
+/* Темна тема */
+body.dark-theme {
+  --primary-color: #6aabff; /* Світліший синій для темної теми */
+  --secondary-color: #adb5bd; /* Світліший сірий */
+  --success-color: #4cd964; /* Світліший зелений */
+  --danger-color: #ff5c5c; /* Світліший червоний */
+  --warning-color: #ffda6e; /* Світліший жовтий */
+
+  --text-color: #e9ecef; /* Світлий текст */
+  --text-muted: #ced4da; /* Світлий приглушений текст */
+  --link-color: var(--primary-color);
+  --link-hover-color: #8cc3ff;
+
+  --bg-body: #212529; /* Темний фон сторінки */
+  --bg-card: #343a40; /* Темний фон карток/контейнерів */
+  --bg-header: #2c3034; /* Темний фон заголовка */
+  --bg-input: #495057; /* Темний фон полів вводу */
+
+  --border-color: #495057;
+  --border-focus-color: rgba(106, 171, 255, 0.25); /* Для фокусу інпутів */
+
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.35);
+}
+
+/* Загальні стилі */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  margin: 0;
+  padding-top: 80px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Стилі для основного заголовка (Header) */
+.main-header {
+  background-color: var(--bg-header) !important; /* Перевизначення Bootstrap */
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+  border-radius: var(--border-radius);
+}
+
+.app-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* Стилі для кнопок навігації в хедері */
+.main-header .btn {
+  font-weight: 500;
+}
+
+.main-header .btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #fff !important;
+  transition: background-color var(--transition-speed), border-color var(--transition-speed), color var(--transition-speed);
+}
+.main-header .btn-primary:hover {
+  background-color: var(--link-hover-color) !important;
+  border-color: var(--link-hover-color) !important;
+}
+
+/* Стиль для кнопки-перемикача теми */
+.theme-toggle-btn {
+  background-color: transparent !important; /* Робимо фон прозорим */
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+.theme-toggle-btn:hover {
+  background-color: var(--border-color) !important;
+  color: var(--primary-color) !important;
+}
+
+
+/* Загальні стилі для карток (ProductCard, Basket, ProductForm, Filter/Search) */
+.card {
+  background-color: var(--bg-card) !important;
+  color: var(--text-color);
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card-title, .card-text {
+  color: var(--text-color);
+}
+
+.card-text small, .text-muted {
+  color: var(--text-muted) !important; /* Перевизначення для Bootstrap */
+}
+
+/* Стилі для полів вводу */
+.form-control {
+  background-color: var(--bg-input);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+  border-radius: var(--border-radius);
+}
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+.form-control:focus {
+  background-color: var(--bg-input);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem var(--border-focus-color);
+}
+.form-select { /* Для селекторів (фільтр складу) */
+    background-color: var(--bg-input);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+    border-radius: var(--border-radius);
+}
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem var(--border-focus-color);
+}
+
+
+/* Стилі для кнопок Bootstrap */
+.btn-primary-outline { /* Спеціальний клас для кнопок обводки, якщо не хочете міняти .btn-outline-primary */
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: transparent;
+    transition: all var(--transition-speed);
+}
+.btn-primary-outline:hover {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary-outline { /* Спеціальний клас для кнопок обводки вторинного кольору */
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    background-color: transparent;
+    transition: all var(--transition-speed);
+}
+.btn-secondary-outline:hover {
+    color: #fff;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-success {
+    background-color: var(--success-color) !important;
+    border-color: var(--success-color) !important;
+    color: #fff !important;
+}
+.btn-success:hover {
+    background-color: darken(var(--success-color), 10%) !important; /* Потрібно Sass або JS для darken */
+    filter: brightness(90%); /* Альтернатива без Sass */
+}
+
+.btn-danger {
+    background-color: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
+    color: #fff !important;
+}
+.btn-danger:hover {
+    filter: brightness(90%);
+}
+
+/* ProductCard specific styles */
+.product-card.selected {
+  border: 2px solid var(--primary-color) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product-card .card-img-top {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Basket specific styles */
+.basket-item .input-group-sm .form-control {
+    background-color: var(--bg-input) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+.basket-item .input-group-sm .btn-outline-secondary {
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+    background-color: var(--bg-card) !important;
+}
+.basket-item .input-group-sm .btn-outline-secondary:hover {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    border-color: var(--primary-color) !important;
+}
+.basket-item .border-bottom {
+    border-color: var(--border-color) !important;
+}
+
+/* ProductForm specific styles */
+.product-form-card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+/* HomePage filters and search section */
+.filter-search-section .card {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.filter-search-section h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem !important;
+  }
+  .main-header nav {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  .main-header .btn {
+    flex-grow: 1;
+    margin-right: 0.5rem !important;
+  }
+  .main-header .btn:last-child {
+    margin-right: 0 !important;
+  }
+  .app-title {
+    margin-bottom: 1rem;
+  }
+
+  .basket-item .col-2, .basket-item .col-3, .basket-item .col-5 {
+    margin-bottom: 0.5rem;
+  }
+  .basket-item img {
+    margin: 0 auto 0.5rem auto;
+  }
+  .product-detail-image {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .app-title {
+    font-size: 1.5rem;
+  }
+  nav .btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .badge {
+    font-size: 0.65em;
+    padding: .2em .4em;
+  }
+  .auth-form-container { /* Якщо у вас є форми логіну/реєстрації */
+    padding: 20px;
+  }
+}
+
+/* Додаємо плавний перехід для Bootstrap collapse */
+.collapse:not(.show) {
+  display: none;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease; /* Плавний перехід для висоти */
+}
+
+/* Стилі для кнопок-перемикачів (можливо, вже є, але для перестраховки) */
+.btn-success-outline {
+  color: var(--success-color);
+  border-color: var(--success-color);
+  background-color: transparent;
+  transition: all var(--transition-speed);
+}
+.btn-success-outline:hover {
+  color: #fff;
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+

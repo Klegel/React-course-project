@@ -1,0 +1,60 @@
+/* src/pages/HomePage.css */
+
+/* Filter/Search Section Styling */
+.card.shadow-sm.p-4.mb-4 { /* Це стосується фільтрів */
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08) !important;
+  background-color: var(--bg-card); /* Використовуємо змінну */
+}
+
+.card.shadow-sm.p-4.mb-4 h4 { /* Заголовок фільтрів */
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Product Form Styling */
+.product-form-card { /* Стилі для форми додавання/редагування товару */
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background-color: var(--bg-card); /* Використовуємо змінну */
+}
+
+.product-form-card h4 { /* Заголовок форми додавання/редагування */
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Dark theme for HomePage elements */
+body.dark-theme .card.shadow-sm.p-4.mb-4 { /* Темний фон для фільтрів */
+  background-color: #3a3a3a; /* Специфічний темний фон для карток фільтрів/форм */
+  color: var(--text-color);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2) !important;
+}
+
+body.dark-theme .product-form-card { /* Темний фон для форми додавання/редагування */
+  background-color: #3a3a3a; /* Специфічний темний фон для карток фільтрів/форм */
+  color: var(--text-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+body.dark-theme .card.shadow-sm.p-4.mb-4 h4,
+body.dark-theme .product-form-card h4 {
+  color: var(--link-color); /* Світліший синій для dark theme */
+  border-bottom-color: var(--border-color);
+}
+
+/* Responsive adjustments for forms/filters */
+@media (max-width: 768px) {
+  .product-form-card,
+  .card.shadow-sm.p-4.mb-4 {
+    padding: 15px !important;
+  }
+}
